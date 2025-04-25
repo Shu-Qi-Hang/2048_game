@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game C++ 下载</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        .github-link {
+            color: #2c3e50;
+            text-decoration: none;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 2px;
+        }
+        .instructions {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2048 C++ 控制台游戏</h1>
+        <p>一个基于命令行的经典2048游戏实现</p>
+        
+        <a href="https://github.com/username/2048_game/raw/main/2048.cpp" class="download-btn" download>
+            下载 2048.cpp
+        </a>
+
+        <div class="instructions">
+            <h3>使用说明</h3>
+            <ol>
+                <li>下载 C++ 源文件</li>
+                <li>使用支持C++11的编译器编译：
+                    <code>g++ -std=c++11 2048.cpp -o 2048</code>
+                </li>
+                <li>运行游戏：
+                    <code>./2048</code> (Linux/Mac) 或 
+                    <code>2048.exe</code> (Windows)
+                </li>
+            </ol>
+        </div>
+
+        <p>访问GitHub仓库获取最新版本和更多信息：<br>
+            <a href="https://github.com/username/2048_game" class="github-link" target="_blank">
+                github.com/username/2048_game
+            </a>
+        </p>
+    </div>
+</body>
+</html>
