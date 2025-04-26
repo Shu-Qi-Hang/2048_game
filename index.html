@@ -2,170 +2,137 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2048 C++ 控制台游戏 v2.0.0 | 舒启航的仓库</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2048 C++ - GitHub Pages版</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --gradient-start: #3498db;
-            --gradient-end: #2ecc71;
+            --primary: #2A5CAA;
+            --secondary: #7BC0C2;
+            --accent: #FF6B6B;
+            --bg: #FAFAFA;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .github-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .achievement-track {
             display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            width: 90%;
-            max-width: 700px;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-weight: 700;
-            text-align: center;
-            position: relative;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             padding-bottom: 1rem;
         }
 
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            margin: 1.5rem 0;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        .instructions {
-            background: rgba(247, 250, 252, 0.9);
-            border-radius: 12px;
+        .achievement-card {
+            flex: 0 0 calc(50% - 1rem);
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 16px;
             padding: 1.5rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(203, 213, 224, 0.3);
-        }
-
-        code {
-            background: #2c3e50;
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .version-badge {
-            background: var(--gradient-end);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-left: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
         }
 
         @media (max-width: 768px) {
-            .container { padding: 1.5rem; width: 95%; }
-            h1 { font-size: 1.5rem; }
+            .achievement-card {
+                flex: 0 0 85%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>2048 控制台游戏
-            <span class="version-badge">v2.0.0</span>
-        </h1>
-        <p style="text-align: center; color: #666; margin: 1rem 0 2rem;">
-            C++实现的经典数字游戏 - 最新版本
-        </p>
+    <div class="container py-5" style="max-width: 800px;">
+        <!-- 标题 -->
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold mb-3" style="color: var(--primary)">
+                2048 C++ <span style="color: var(--accent)">Windows版</span>
+            </h1>
+            <img src="https://img.shields.io/github/last-commit/Shu-Qi-Hang/2048_game?label=最后更新" alt="最后提交">
+        </header>
 
-        <div style="text-align: center;">
-            <a href="https://github.com/Shu-Qi-Hang/2048_game/raw/main/2048v.2.0.0.cpp" 
-               class="download-btn"
-               download="2048v.2.0.0.cpp">
-                <i class="fas fa-download"></i>
-                立即下载 (v2.0.0)
+        <!-- 下载区 -->
+        <section class="github-card text-center">
+            <a href="https://raw.githubusercontent.com/Shu-Qi-Hang/2048_game/main/2048_new.cpp" 
+               download="2048_new.cpp"
+               class="btn btn-lg px-5 mb-3"
+               style="background: var(--primary); color: white">
+               ⬇️ 下载源码
             </a>
-        </div>
+            <div class="text-muted small">
+                版本：v2.0.0 | 文件大小：12KB
+            </div>
+        </section>
 
-        <div class="instructions">
-            <h3 style="margin-top: 0; color: var(--primary-color);">📦 编译指南</h3>
-            <code>g++ -std=c++11 2048v.2.0.0.cpp -o 2048</code>
-            <p style="margin: 1rem 0 0; color: #666;">
-                🖥️ 运行命令: 
-                <code>./2048</code> (Linux/Mac) 或 
-                <code>2048.exe</code> (Windows)
-            </p>
-        </div>
+        <!-- 成就系统 -->
+        <section class="github-card">
+            <h4 class="mb-4" style="color: var(--secondary)">🏆 成就系统</h4>
+            <div class="achievement-track" id="achievementTrack">
+                <!-- 动态加载成就 -->
+            </div>
+        </section>
 
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://github.com/Shu-Qi-Hang.io/2048_game" 
-               class="github-link"
-               target="_blank"
-               rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-                访问GitHub仓库获取源码
-            </a>
-        </div>
+        <!-- 更新日志 -->
+        <section class="github-card">
+            <h4 class="mb-4" style="color: var(--primary)">📜 版本历史</h4>
+            <div id="changelog"></div>
+        </section>
     </div>
 
-    <!-- 可选：下载统计脚本 -->
     <script>
-    document.querySelector('.download-btn').addEventListener('click', function() {
-        // 示例：发送下载统计请求
-        fetch('https://api.your-analytics.com/track', {
-            method: 'POST',
-            body: JSON.stringify({
-                event: 'download',
-                file: '2048v.2.0.0.cpp'
-            })
+        // 成就数据
+        const achievements = [
+            { id:1, title:"初出茅庐", desc:"完成第一次移动", icon:"🚀" },
+            { id:2, title:"如日中升", desc:"合成数字512", icon:"☀️" },
+            { id:3, title:"终极目标", desc:"合成数字2048", icon:"🎯" },
+            { id:4, title:"闪电战", desc:"游戏在50回合内结束", icon:"⚡" },
+            { id:5, title:"幸运星", desc:"连续生成3次数字4", icon:"🍀" },
+            { id:6, title:"持久战", desc:"游戏持续300回合以上", icon:"🛡️" },
+            { id:7, title:"超越极限", desc:"合成数字4096", icon:"💎" },
+            { id:8, title:"改代码的狗", desc:"更改代码数据", icon:"👨💻" }
+        ];
+
+        // 生成成就卡片
+        const track = document.getElementById('achievementTrack');
+        achievements.forEach(ach => {
+            const card = document.createElement('div');
+            card.className = 'achievement-card';
+            card.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <div class="me-3" style="font-size:1.5em">${ach.icon}</div>
+                    <div>
+                        <h5>${ach.title}</h5>
+                        <p class="text-muted small mb-0">${ach.desc}</p>
+                    </div>
+                </div>
+            `;
+            track.appendChild(card);
         });
-    });
+
+        // 加载更新日志
+        fetch('https://raw.githubusercontent.com/Shu-Qi-Hang/2048_game/main/day.txt')
+            .then(response => response.text())
+            .then(text => {
+                const logs = text.split('\n').filter(line => line.trim());
+                const logHTML = logs.map(line => `
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text-muted small">${line.substring(0,10)}</div>
+                        <div>${line.substring(11)}</div>
+                    </div>
+                `).join('');
+                document.getElementById('changelog').innerHTML = logHTML;
+            });
     </script>
 </body>
 </html>
